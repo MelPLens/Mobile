@@ -10,19 +10,16 @@ import java.util.ArrayList;
 
 public class BancoHelper extends SQLiteOpenHelper {
 
-    // Informações do banco de dados
     private static final String DATABASE_NAME = "medicamentos.db";
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_MEDICAMENTOS = "medicamentos";
 
-    // Colunas da tabela
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_NOME = "nome";
     private static final String COLUMN_DESCRICAO = "descricao";
     private static final String COLUMN_HORARIO = "horario";
     private static final String COLUMN_TOMADO = "tomado";
 
-    // SQL para criar a tabela
     private static final String CREATE_TABLE =
             "CREATE TABLE " + TABLE_MEDICAMENTOS + "(" +
                     COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -46,7 +43,6 @@ public class BancoHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    // Método para adicionar um novo medicamento
     public long adicionarMedicamento(MedicamentoModel medicamento) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -62,7 +58,7 @@ public class BancoHelper extends SQLiteOpenHelper {
         return id;
     }
 
-    // Método para obter um medicamento pelo ID
+
     public MedicamentoModel getMedicamento(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -149,7 +145,6 @@ public class BancoHelper extends SQLiteOpenHelper {
         return rowsAffected;
     }
 
-    // Método para contar quantos medicamentos existem
     public int getMedicamentosCount() {
         String countQuery = "SELECT * FROM " + TABLE_MEDICAMENTOS;
         SQLiteDatabase db = this.getReadableDatabase();

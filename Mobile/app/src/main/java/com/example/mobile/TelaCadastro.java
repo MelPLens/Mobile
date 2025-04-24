@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class TelaCadastro extends AppCompatActivity {
 
-    // Componentes da interface
     private EditText editNome;
     private EditText editDescricao;
     private EditText editHorario;
